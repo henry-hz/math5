@@ -42,5 +42,20 @@ example : 2 = succ (succ 0) := by
   rewrite [one_eq_succ_zero]
   rfl
 
+-- if h is a proof of X = Y then rw [h] will turn Xs into Ys. But what if
+-- we want to turn Ys into Xs? To tell the rw tactic we want this,
+-- we use a left arrow ←. Type \l and then hit the space bar to get this arrow.
+example : 2 = succ (succ 0) := by
+  rewrite [← one_eq_succ_zero]
+  rewrite [← two_eq_succ_one]
+  rfl
 
+
+example (a b c : ℕ) : a + (b + 0) + (c + 0) = a + b + c := by
+  rw [add_zero b]
+  rw [add_zero c]
+
+
+example (a b c : ℕ) : a + (b + 0) + (c + 0) = a + b + c := by
+  repeat rw [add_zero]
 
