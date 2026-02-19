@@ -41,6 +41,7 @@ import MIL.C12_Differential_Calculus.S02_Differential_Calculus_in_Normed_Spaces
 import MIL.C13_Integration_and_Measure_Theory.S01_Elementary_Integration
 import MIL.C13_Integration_and_Measure_Theory.S02_Measure_Theory
 import MIL.C13_Integration_and_Measure_Theory.S03_Integration
+import MIL.T01.Uniswap_Hedge
 import MIL.Common
 import MIL.HelpersLib.Finsupp2
 import MIL.HelpersLib.NNReal
