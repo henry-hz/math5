@@ -1,7 +1,6 @@
 import Mathlib.Data.Finsupp.Basic
 import Mathlib.Data.Finsupp.Defs
-import Mathlib.Tactic.LibrarySearch
-import HelpersLib.Prod
+import MIL.HelpersLib.Prod
 
 -- If g gives you zero for an element,
 -- then erasing it from the finsupp has no effect on the sum
@@ -12,7 +11,7 @@ theorem Finsupp.sum_zero' {α β γ: Type} [Zero β] [AddCommMonoid γ] [Decidab
   rcases Decidable.em (x ∈ f.support) with insupp|outsupp
   . rw [← Finsupp.add_sum_erase _ x _ insupp]
     rw [h, zero_add]
-  . rw [Finsupp.erase_of_not_mem_support outsupp]
+  . rw [Finsupp.erase_of_notMem_support outsupp]
 
 
 theorem Finsupp.update_diff {α β: Type} [DecidableEq α] [Zero β]
@@ -109,27 +108,12 @@ theorem Finsupp.uncurried_swap_def' {α β M: Type} [e: AddCommMonoid M]
   f.uncurried_swap x = f x.swap := by
   simp [uncurried_swap, Prod.swap_emb]
 
-noncomputable def Finsupp.curried_swap {α β M: Type} [AddCommMonoid M]
+noncomputable def Finsupp.curried_swap {α β M: Type} [AddCommMonoid M] [DecidableEq α] [DecidableEq β]
   (f: α →₀ β →₀ M): β →₀ α →₀ M :=
     f.uncurry.uncurried_swap.curry
 
--- Copied from finsuppProdEquiv.left_inv
--- I couldn't figure out how to reuse it
-theorem Finsupp.uncurry_curry {α β M: Type} [e: AddCommMonoid M]
-  (f: α →₀ β →₀ M):
-  f.uncurry.curry = f := by
-  simp only [Finsupp.curry, Finsupp.uncurry, sum_sum_index, sum_zero_index, sum_add_index,
-    sum_single_index, single_zero, single_add, eq_self_iff_true, forall_true_iff,
-    forall₃_true_iff, Prod.mk.eta, (single_sum _ _ _).symm, sum_single]
 
-theorem Finsupp.uncurry_apply {α β M: Type} [e: AddCommMonoid M]
-  (f: α →₀ β →₀ M) (a: α) (b: β):
-  f.uncurry (a,b) = f a b := by
-  conv => rhs
-          rw [← uncurry_curry f]
-  rw [curry_apply]
-
-theorem Finsupp.curried_swap_def {α β M: Type} [e: AddCommMonoid M]
+theorem Finsupp.curried_swap_def {α β M: Type} [e: AddCommMonoid M] [DecidableEq α] [DecidableEq β]
   (f: α →₀ β →₀ M) (a: α) (b: β):
   f.curried_swap b a = f a b := by
   unfold curried_swap

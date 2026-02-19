@@ -24,6 +24,7 @@ def my_2 := my_list ++ [5,6]
 
 
 
+
 def myList : List Nat := [1, 2, 3, 4, 5]
 def squaredList := myList.map (fun x => x * x) -- Squares each element
 
@@ -37,3 +38,6 @@ def sumit : List ℕ → ℕ
   | [] => 0
   | x :: xs => x + sumit xs
 
+
+def a := sumit [1,3,4,9,234]
+#eval a

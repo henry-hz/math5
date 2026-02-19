@@ -1,5 +1,5 @@
-import Mathlib.Data.Real.NNReal
-import HelpersLib.PReal.Basic
+import Mathlib.Data.NNReal.Basic
+import MIL.HelpersLib.PReal.Basic
 open NNReal
 
 lemma NNReal.neq_zero_imp_gt {x: ℝ≥0} (h: x ≠ 0)
