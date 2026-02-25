@@ -16,6 +16,10 @@ This version of *Mathematics in Lean* is designed for [Lean 4](https://leanprove
 For the Lean 3 version, see [https://github.com/leanprover-community/mathematics_in_lean3](https://github.com/leanprover-community/mathematics_in_lean3).
 
 
+## Resources
+
+* [desmos-guide](https://mathvault.ca/desmos-guide/)
+
 ## To use this repository on your computer
 
 Do the following:
