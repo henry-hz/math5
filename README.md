@@ -18,7 +18,10 @@ For the Lean 3 version, see [https://github.com/leanprover-community/mathematics
 
 ## Resources
 
+### Desmos
 * [desmos-guide](https://mathvault.ca/desmos-guide/)
+* [desmos-manual](https://docs.google.com/document/d/1gV-WgDjgR9hKKb32ffeUpjwggNAgfqxl0Gsg6xocbok/preview?tab=t.0)
+* [functions](https://help.desmos.com/hc/en-us/articles/212235786-Supported-Functions)
 
 ## To use this repository on your computer
 
